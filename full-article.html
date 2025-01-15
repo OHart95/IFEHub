@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Article | Construction Site Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="feed.html">Feed</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Full Article Page -->
+  <section id="full-article">
+    <div id="article-content">
+      <!-- Full article content will be populated dynamically here -->
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const queryParams = new URLSearchParams(window.location.search);
+      console.log("Query parameters:", queryParams.toString());  // Debugging query params
+      
+      // Extract the article ID based on query parameters
+      const articleId = queryParams.get('safety-standards') || queryParams.get('fall-protection') || queryParams.get('electrical-safety') || queryParams.get('ppe-best-practices') || queryParams.get('fire-safety');
+      console.log("Article ID:", articleId);  // Debugging articleId
+      
+      let articleTitle = '';
+      let articleImage = '';
+      let articleBody = '';
+
+      // Conditional logic to set article content based on articleId
+      if (articleId === 'safety-standards') {
+        articleTitle = 'Safety Standards for Construction';
+        articleImage = 'https://via.placeholder.com/800x400?text=Safety+Standards';
+        articleBody = `
+          <p>Construction safety is essential to protect workers from accidents and injuries. In this article, we explore the key safety standards that should be followed on construction sites, including protective equipment, hazard assessments, and proper training.</p>
+          <p>By implementing safety standards, companies reduce the risk of accidents, ensure compliance with legal regulations, and promote a culture of safety within the workplace.</p>
+        `;
+      } else if (articleId === 'fall-protection') {
+        articleTitle = 'Fall Protection Guidelines';
+        articleImage = 'https://via.placeholder.com/800x400?text=Fall+Protection';
+        articleBody = `
+          <p>Falls are one of the leading causes of injury on construction sites. This article covers the necessary fall protection measures including the use of guardrails, safety nets, and personal fall arrest systems (PFAS).</p>
+          <p>Understanding when and how to use fall protection equipment is critical for preventing injuries and maintaining a safe work environment for everyone involved in the construction process.</p>
+        `;
+      } else if (articleId === 'electrical-safety') {
+        articleTitle = 'Electrical Safety in Construction';
+        articleImage = 'https://via.placeholder.com/800x400?text=Electrical+Safety';
+        articleBody = `
+          <p>Electrical safety on construction sites is paramount to preventing serious accidents and fatalities. In this article, we delve into the importance of properly grounding electrical equipment, inspecting electrical systems, and using protective devices such as circuit breakers and fuses.</p>
+          <p>Construction workers must also be trained to identify electrical hazards and understand the proper safety procedures to reduce the risk of electrical shock or fire.</p>
+        `;
+      } else if (articleId === 'ppe-best-practices') {
+        articleTitle = 'Personal Protective Equipment (PPE) Best Practices';
+        articleImage = 'https://via.placeholder.com/800x400?text=PPE+Best+Practices';
+        articleBody = `
+          <p>Personal Protective Equipment (PPE) plays a crucial role in ensuring the safety of workers on construction sites. This article explains the best practices for using PPE such as helmets, gloves, high-visibility vests, and hearing protection.</p>
+          <p>We discuss how to properly fit and maintain PPE to guarantee its effectiveness in minimizing injuries and protecting workers from environmental hazards.</p>
+        `;
+      } else if (articleId === 'fire-safety') {
+        articleTitle = 'Fire Safety Procedures on Site';
+        articleImage = 'https://via.placeholder.com/800x400?text=Fire+Safety';
+        articleBody = `
+          <p>Construction sites can be prone to fire hazards due to flammable materials and equipment. This article covers the essential fire safety procedures, including fire extinguisher use, emergency evacuation plans, and fire prevention practices.</p>
+          <p>It's critical for workers to be trained in fire safety protocols and for sites to have the necessary equipment and plans in place to prevent and respond to fires promptly.</p>
+        `;
+      } else {
+        console.error("No article found for this ID");
+      }
+
+      // Debugging: Check if the article content is set correctly
+      console.log("Article Title:", articleTitle);
+      console.log("Article Image:", articleImage);
+      console.log("Article Body:", articleBody);
+
+      // Dynamically populate the article content
+      const articleContentElement = document.getElementById('article-content');
+      if (articleContentElement) {
+        articleContentElement.innerHTML = `
+          <h1>${articleTitle}</h1>
+          <img src="${articleImage}" alt="${articleTitle}" class="article-image">
+          <div class="article-body">${articleBody}</div>
+        `;
+      } else {
+        console.error("Article content element not found!");
+      }
+    });
+  </script>
+
+</body>
+</html>

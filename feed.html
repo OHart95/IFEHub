@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Feed | Construction Site Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="feed.html">Feed</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Feed Section -->
+  <section id="feed">
+    <h2>Community Feed</h2>
+    <div id="post-form">
+      <textarea id="post-text" placeholder="Write something..."></textarea>
+      <input type="file" id="post-image" accept="image/*">
+      <button id="submit-post">Post</button>
+    </div>
+    <div id="posts">
+      <!-- Posts populated dynamically by JavaScript -->
+    </div>
+  </section>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
